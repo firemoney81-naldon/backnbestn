@@ -1,23 +1,547 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="2026년형 개인 맞춤형 암보험 비교 및 현명한 자산 유지 전략 가이드. 사회초년생부터 기저질환자까지 종합 솔루션 제공.">
+    <meta name="keywords" content="암보험, 사회초년생보험, 암보험비교, 암보험보장, 암보험해지환급금, 갱신형암보험">
+    <link rel="canonical" href="https://yourdomain.com">
+    <title>2026 맞춤형 암보험 분석 및 자산 포트폴리오 설계 가이드</title>
+
+    <!-- Open Graph for Naver and Kakao -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="2026 맞춤형 암보험 분석 및 자산 포트폴리오 설계 가이드">
+    <meta property="og:description" content="건강과 자산을 동시에 지키는 2026년 최신 암보험 맞춤 가이드. 보장 분석부터 환급금 최적화까지 한눈에 확인하세요.">
+    <meta property="og:image" content="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <meta property="og:url" content="https://yourdomain.com">
+
+    <!-- CSS Styling for Pastel/Soft Layout -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        :root {
+            --bg-main: #FAF8F5; /* Soft Warm Cream */
+            --text-dark: #2D3748; /* Slate Charcoal */
+            --text-muted: #718096;
+            --pastel-peach: #FFEBE5;
+            --pastel-green: #EAF5ED;
+            --pastel-blue: #EBF3F9;
+            --pastel-purple: #F3EEF9;
+            --accent-coral: #FF7A59;
+            --accent-mint: #48BB78;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--pastel-peach) 0%, var(--pastel-purple) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            letter-spacing: -1px;
+        }
+
+        .header-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Category Card Layout */
+        .category-section {
+            background-color: var(--white);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .category-section:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Differentiating backgrounds by category */
+        .cat-1 { border-left: 8px solid var(--accent-coral); }
+        .cat-2 { border-left: 8px solid #4299E1; }
+        .cat-3 { border-left: 8px solid var(--accent-mint); }
+        .cat-4 { border-left: 8px solid #9F7AEA; }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .article-block {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px dashed #E2E8F0;
+        }
+
+        .article-block:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .article-block h3 {
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .article-block h3::before {
+            content: "•";
+            color: var(--accent-coral);
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+
+        .article-text {
+            color: #4A5568;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Soft highlight link styling */
+        .inline-link {
+            color: #2B6CB0;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--pastel-peach);
+            transition: all 0.2s ease;
+            padding: 2px 4px;
+            border-radius: 4px;
+            background-color: rgba(255, 122, 89, 0.05);
+        }
+
+        .inline-link:hover {
+            background-color: var(--pastel-peach);
+            color: #1A365D;
+            border-bottom-color: var(--accent-coral);
+        }
+
+        footer {
+            background-color: #2D3748;
+            color: #A0AEC0;
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            margin-top: 100px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 15px;
+            }
+            .header-content h1 {
+                font-size: 1.85rem;
+            }
+            .category-section {
+                padding: 25px 20px;
+            }
+            .category-title {
+                font-size: 1.45rem;
+            }
+            .category-image {
+                height: 220px;
+            }
+            .article-block h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+    <!-- JSON-LD Structured Data for Naver & AI Search Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "2026년에 사회초년생이 가입하기에 가장 현명한 암보험 선택 요령은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년 기준 청년층 자산관리 트렌드는 불필요한 사망 보장 특약을 최소화하고 저렴한 비갱신형 기본 진단금을 극대화하는 것입니다. 장기 보존에 유리하도록 무해지환급형 설계를 추천합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "고혈압이나 만성질환이 있는 유병자도 암보험 혜택을 온전히 볼 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "최근 간편심사 제도의 대중화로 정기적인 약 복용 및 정상적인 건강 관리를 하시는 유병자분들도 일반 암보험과 유사한 수준의 든든한 진단비와 수술비 혜택을 누릴 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "암보험에서 갱신형과 비갱신형 중 어떤 타입이 자산 관리에 더 효율적인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "나이가 젊고 장기간 안정적인 지출 관리를 최우선으로 생각한다면 납입 금액이 일정하게 유지되는 비갱신형이 우세하지만, 은퇴 전 경제 활동기에 집중적인 고액 보장 공백을 촘촘히 보완하기 위한 목적이라면 초기 지출액을 줄여 실리를 도모할 수 있는 갱신형이 적합할 수 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>건강한 내일을 여는 스마트 암케어 자산관리 가이드</h1>
+            <p>2026년 급변하는 의료 환경과 평균 수명 백세 시대의 고도화된 생애 주기적 관점에서 나에게 딱 맞는 최적의 암케어 전략을 체계적으로 수립하는 유용한 이정표를 공유해 드립니다.</p>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Category Section 1 -->
+        <section class="category-section cat-1">
+            <div class="category-header">
+                <h2 class="category-title">01. 자립적 생애 설계 및 최적의 리스크 관리</h2>
+            </div>
+            <!-- Pexels Image 1 -->
+            <img class="category-image" src="https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=800" alt="사회초년생들이 책상에 모여 재무 계획을 세우는 모습">
+            
+            <div class="article-block">
+                <h3>미래 금융 구조의 첫 출발점과 안전장치</h3>
+                <p class="article-text">
+                    바쁜 사회에 첫걸음을 대딛고 이제 스스로 자산을 구축해 가야 하는 청년들의 입장에서 미래 준비란 다소 막막한 난제일 수 있습니다. 하지만 한정적인 급여 구조 내에서 만일의 건강 리스크로 인한 재정적 붕괴를 예방하는 일은 투자의 기본 중 기본입니다. 2026년 급격히 증가하는 젊은 층 암 발생률에 대비해 <a href="https://ambohumabestu.withusdone.com" target="_blank" class="inline-link">사회초년생보험</a>은 단순 지출이 아닌 내 종잣돈을 끝까지 지키는 유용한 저지선 역할을 수행합니다. 젊은 시기에는 신체 활력과 회복력이 월등하므로 저렴한 기초 비용으로 가성비가 높은 비갱신형 진단금을 견고히 선점하는 요령이 필요합니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>백세 시대의 실질 생존율 향상과 대비 전략</h3>
+                <p class="article-text">
+                    혁신 신약과 차세대 의학 기술의 빠른 대중화에 힘입어 수많은 무서운 질병이 완치 가능한 영역으로 접어들었습니다. 그러나 치료와 관리가 지속되는 장기적 여정에 따른 실질적 지출은 가계에 더 큰 무리를 가하는 변수로 떠올랐습니다. 바로 여기에 우리가 체계적인 자산 배분 하에 <a href="https://ambohumxbestt.withusdone.com" target="_blank" class="inline-link">암보험필요성</a>을 깊게 실감하게 되는 궁극적 실체가 내재되어 있습니다. 아플 때 단순한 실비 청구로는 생활 공백을 모두 메울 수 없기에, 진단과 동시에 정액으로 지급되어 간병비나 생활 생활 유지 자금으로 전환할 수 있는 구조적 든든함이야말로 안심하고 완치에 집중할 수 있는 진정한 동력이 될 것입니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>평균 기대수명 연장과 안정적인 만기 설정 비결</h3>
+                <p class="article-text">
+                    평균 기대 연령이 가파르게 상승하면서 보장 약속이 종료되는 시점을 설정하는 것 또한 꼼꼼한 재무 설계 능력을 요구합니다. 예전보다 은퇴 연령이 점차 늦어지는 현대 사회 흐름을 감안해 볼 때, 은퇴 시점에 갑작스럽게 보호망이 상실되는 극단적인 상황을 맞이하지 않으려면 <a href="https://ambohumxbestb.withusdone.com" target="_blank" class="inline-link">암보험만기</a>를 경제 정년과 일치시키거나 건강의 고위험 시기가 분포해 있는 100세까지 적정하게 늘려 구성하는 균형 감각이 대단히 중요한 포인트가 될 것입니다. 비용과 만기 연도 간의 최적 수식을 찾아내 자산 효율성을 다각도로 극대화해 보시기 바랍니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- Category Section 2 -->
+        <section class="category-section cat-2">
+            <div class="category-header">
+                <h2 class="category-title">02. 최신 암보험 맞춤 보장 및 상품 정밀 비교</h2>
+            </div>
+            <!-- Pexels Image 2 -->
+            <img class="category-image" src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&cs=tinysrgb&w=800" alt="정밀하게 분석표를 보며 보험 상품을 논의하는 미팅 구조">
+            
+            <div class="article-block">
+                <h3>의료 트렌드와 변화하는 진단비 설계 노하우</h3>
+                <p class="article-text">
+                    최근 의료 혁신 속도는 기존의 통상적인 가입 포트폴리오의 구조조정을 지속적으로 압박하고 있습니다. 과거에는 단순 암 진단만으로 일정액을 받는 구조에 안주했다면, 이제는 환자 개인의 암세포만을 추적 치료하여 부작용을 줄인 표적치료, 다빈치 로봇수술 등 고가의 신기술 치료들이 빈번히 쓰임에 따라 <a href="https://ambohumohbestr.withusdone.com" target="_blank" class="inline-link">암보험보장</a> 범위를 넓고 세부적으로 업그레이드해야만 합니다. 특히 소액암 및 유사암에 속하는 부분들도 자가 부담률을 최소화해 사각지대를 완전히 없애는 유기적인 특약 연계 설정이 대단히 유리합니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>맞춤형 통합 시각화 플랫폼의 효율적 이용</h3>
+                <p class="article-text">
+                    세상에는 헤아리기 힘들 만큼 많은 수의 관련 상품들이 즐비해 있으며 브랜드별 가입 요건과 내부 공제 기준도 상이합니다. 이에 따라 일반 소비자의 식견만으로는 최선의 가성비 상품을 발굴해 내기가 결코 만만치 않습니다. 스마트한 실속형 설계의 중심에 서 있는 <a href="https://ambohumohbestn.withusdone.com" target="_blank" class="inline-link">암보험상품비교</a> 분석 솔루션은 나이, 직업적 특성, 가족의 과거 병력 등을 면밀히 파악하여 나에게 가장 적합하고 유리한 순서대로 추천 포트폴리오를 빠르게 나열해 줍니다. 복잡한 유통 마진을 대폭 제거한 합리적인 루트를 통해 평생 믿고 기댈 수 있는 버팀목을 선별해 볼 기회를 만끽하시기 바랍니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>신속하고 투명한 보험금 수령 및 청구 프로세스</h3>
+                <p class="article-text">
+                    든든한 대비책을 빈틈없이 마련했더라도 만에 하나의 큰 고비가 찾아온 시점에 정작 필요한 혜택을 온전히, 그리고 신속하게 돌려받지 못하게 된다면 그 아쉬움은 배가 될 수밖에 없을 것입니다. 그렇기 때문에 <a href="https://ambohumabestx.withusdone.com" target="_blank" class="inline-link">암보험금</a>을 안정적으로 누락 없이 받기 위해서는 최초 가입 당시에 분쟁의 소지가 있을 수 있는 고지 의무 조항을 완벽히 이행하고, 각 질병 코드에 명확하게 부합하는 조직검사 결과보고서 수급 등의 서류 구비 요령을 능동적으로 숙지해 두는 철저함이 동반되어야 합니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- Category Section 3 -->
+        <section class="category-section cat-3">
+            <div class="category-header">
+                <h2 class="category-title">03. 만성 질환 대비 및 타겟 맞춤 플래닝</h2>
+            </div>
+            <!-- Pexels Image 3 -->
+            <img class="category-image" src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800" alt="정밀하게 의학적 상태를 설명해주는 전문 의료 스태프">
+            
+            <div class="article-block">
+                <h3>만성질환 유병자의 간편 가입을 위한 정밀 가이드</h3>
+                <p class="article-text">
+                    예전에는 혈압 조절이나 당뇨와 같은 가벼운 지병만 앓고 있어도 가입 문턱을 넘기가 불가능에 가깝다는 선입견이 널리 지배적이었습니다. 하지만 간편 심사 제도가 세련되게 변모한 지금의 기조 아래서는 적극적인 관리가 수반되고 있다면 <a href="https://ambohumxbesta.withusdone.com" target="_blank" class="inline-link">고혈압암보험</a> 설계를 통해 전혀 불이익 없이 탄탄하고 폭넓은 치료 대안을 조율할 수 있습니다. 단순한 과거 이력 때문에 기죽어 미리 포기하기보다는 간편 고지 기준(3·2·5 등)의 세부 조건을 조화롭게 파고들어 보다 실용적이고 마음 놓이는 노후 안심망을 적극 선점할 때입니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>현대적 환경 유해요인으로 급상승 중인 고위험 암 대비</h3>
+                <p class="article-text">
+                    미세먼지나 황사, 그리고 주방이나 산업 현장의 유해 물질과 장시간 가깝게 밀착되어 살아가는 현대 도시인들에게 폐질환과 관련된 암 발생은 심각하고 뼈아픈 이슈가 아닐 수 없습니다. 특히 자각 증세가 무척 뒤늦게 발현하는 특성으로 인해 <a href="https://ambohumsbestr.withusdone.com" target="_blank" class="inline-link">폐암보험</a>을 별도 혹은 특약 형태로 든든히 구비하는 행동이 권장되는 실정입니다. 단순한 종합 설계의 일부로 편입하기보다는 표적 약물 치료나 장기 요양 케어 지원비가 한층 무겁고 빈틈없이 집중 배치될 수 있도록 세심하게 매칭해야 안전합니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>치료비가 치솟는 특정 암 집중 보강 요령</h3>
+                <p class="article-text">
+                    발병률은 상대적으로 높지 않으나 발견 시 압도적인 직접 비용과 수개월 혹은 수년간에 걸친 사회적 경력 단절로 이어지는 뇌암, 췌장암, 골수암 등은 '재난형 질병'이라고 불러도 결코 무리가 아닙니다. 이러한 고액 치료비에 특화되어 대가족의 파산을 정면으로 방어하는 <a href="https://ambohumsbestq.withusdone.com" target="_blank" class="inline-link">고액암보험</a>은 상대적으로 저렴한 주계약 외 추가 보험료 지출로도 고액 진단금을 2배에서 3배 이상 확보 가능한 효율을 안겨줍니다. 집안의 주 소득원이거나 가족력이 상존하는 조건이라면 주저하지 말고 선제 배치할 필수 불가결한 안전판입니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- Category Section 4 -->
+        <section class="category-section cat-4">
+            <div class="category-header">
+                <h2 class="category-title">04. 납입 방식과 자산 유지를 위한 스마트 금융 솔루션</h2>
+            </div>
+            <!-- Pexels Image 4 -->
+            <img class="category-image" src="https://images.pexels.com/photos/4056816/pexels-photo-4056816.jpeg?auto=compress&cs=tinysrgb&w=800" alt="서로의 손을 포근히 마주잡고 지지해주는 따스한 이미지">
+            
+            <div class="article-block">
+                <h3>고비용 시대에 납입 합리성을 돕는 순수 구조의 선택</h3>
+                <p class="article-text">
+                    나이에 비례해 보험료율이 자연스럽게 연동 상승하지만 가입 시점의 첫 문턱과 지불 장벽을 획기적으로 낮춰주는 가성비 전략이 바로 <a href="https://ambohumabestp.withusdone.com" target="_blank" class="inline-link">암보험갱신형</a> 상품 구조입니다. 재정적으로 고액 보장이 집중되어야 하는 생애 황금기나 아직 종잣돈이 넉넉히 축적되지 못한 과도기에 저비용 고효율 구조의 집중 특약을 수립하고자 하는 소비자들에게 놀랍도록 명쾌한 비용 경감 방안을 안내해 줍니다. 스스로 감당할 수 있는 적정 예산 한도 내에서 정기 변동 패턴을 예방하며 단기적으로 큰 리스크를 제거하는 영리함을 발휘해 보십시오.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>재정 소득 주기와 평생의 평온함을 잇는 구조 이해</h3>
+                <p class="article-text">
+                    앞선 상품 구조의 연장선상에서 우리가 반드시 한 단계 더 깊이 들여다봐야 할 대목은 <a href="https://ambohumofbeste.withusdone.com" target="_blank" class="inline-link">갱신형암보험</a>의 갱신 주기별 단가 변화 시뮬레이션입니다. 만약 60세 혹은 70세 이후의 소득 단절 시점까지 지속적으로 갱신 주기가 찾아오는 계약이라면 나중의 인상폭이 경제적 은퇴자의 지출 구조를 옥죄는 심각한 요인이 될 우려가 큽니다. 따라서 자신의 주된 소득 유효 연한과 집중 보장을 받고 싶은 골든 타임을 현명하게 일치시켜 비갱신형과의 하이브리드 조합을 완성해 낼 때 가장 실리적이고 완전무결한 혜택을 온전히 소화할 수 있습니다.
+                </p>
+            </div>
+
+            <div class="article-block">
+                <h3>예기치 못한 사정의 해약 시 손해 최소화 및 가치 계산</h3>
+                <p class="article-text">
+                    인생의 긴 여정 속에서 뜻밖의 경기 불황이나 급전이 필요한 이유 등으로 불가피하게 장기 저축 혹은 보장성 상품의 정리를 부득이하게 결심하게 되는 경우가 종종 생겨납니다. 이때 반드시 인지하고 대조해야 할 기준이 바로 <a href="https://ambohumnbests.withusdone.com" target="_blank" class="inline-link">암보험해지환급금</a>의 현재 시점 평가액과 환수 규칙입니다. 무해지 혹은 저해지형으로 계약했을 시 납입 기간 내 해약은 거의 원금을 다 잃는 결과로 치닫기 때문에 약관 대출이나 납입 일시 중지 등 다른 유연한 우회 전략을 병행하는 것이 가계의 알짜배기 자산 손실을 단 한 푼이라도 영리하게 방어해 내는 훌륭한 길잡이가 될 것입니다.
+                </p>
+            </div>
+        </section>
     </main>
-  </body>
+
+
+<!-- [Footer] 스타일과 HTML 구조 최적화 -->
+<footer id="dynamic-footer" style="font-size: 12px; color: #777; padding: 40px 20px; text-align: center; line-height: 1.8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #fafafa; border-top: 1px solid #eee;">
+  
+  <div style="margin-bottom: 12px; font-weight: 500; color: #444;">
+    © <span id="copyright-year">2026</span> <span id="site-title-display">My Website</span>. All rights reserved.
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: center; gap: 8px; color: #999;">
+    <!-- 실시간 상태 표시등 (시각적 신뢰도 상승) -->
+    <span style="display: inline-block; width: 8px; height: 8px; background-color: #2ecc71; border-radius: 50%; box-shadow: 0 0 5px #2ecc71; animation: pulse 2s infinite;"></span>
+    <span id="sync-status" aria-live="polite">시스템 연결 중...</span>
+    <span style="color: #ddd;">|</span>
+    <span>최종 업데이트: <time id="last-update-time" datetime="2026-01-01">2026-01-01</time></span>
+  </div>
+
+  <style>
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // 1. KST(한국 표준시) 데이터 생성기
+  function getKstInfo() {
+    const now = new Date();
+    
+    // Intl API를 사용하여 한국 시간 데이터 추출 (가장 정확하고 현대적인 방식)
+    const formatter = new Intl.DateTimeFormat('ko-KR', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false
+    });
+
+    const parts = formatter.formatToParts(now).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+
+    const year = parts.year;
+    const formattedDate = year + '-' + parts.month + '-' + parts.day;
+    const isoDateTime = year + '-' + parts.month + '-' + parts.day + 'T' + parts.hour + ':' + parts.minute + ':' + parts.second + '+09:00';
+
+    return { year, formattedDate, isoDateTime };
+  }
+
+  // 2. SEO 메타 태그 및 JSON-LD 일괄 업데이트
+  function updateSeoEngine(data) {
+    const title = document.title || window.location.hostname;
+
+    // 메타 태그 헬퍼 함수
+    const setMeta = (selector, content) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (selector.includes('property')) {
+          el.setAttribute('property', selector.split('"')[1]);
+        } else {
+          el.setAttribute('name', selector.split('"')[1]);
+        }
+        document.head.appendChild(el);
+      }
+      el.content = content;
+    };
+
+    // [SEO] 필수 메타 데이터
+    setMeta('property="og:updated_time"', data.isoDateTime);
+    setMeta('property="article:modified_time"', data.isoDateTime);
+    setMeta('name="date"', data.formattedDate);
+    setMeta('name="last-modified"', data.isoDateTime); // 서버 응답 대용
+    setMeta('name="copyright"', data.year + ' ' + title);
+
+    // [SEO] JSON-LD 구조화 데이터 (WebPage + Organization 결합)
+    let ldJsonScript = document.getElementById('seo-json-ld');
+    if (!ldJsonScript) {
+      ldJsonScript = document.createElement('script');
+      ldJsonScript.id = 'seo-json-ld';
+      ldJsonScript.type = 'application/ld+json';
+      document.head.appendChild(ldJsonScript);
+    }
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": window.location.href,
+          "url": window.location.href,
+          "name": title,
+          "datePublished": data.isoDateTime,
+          "dateModified": data.isoDateTime,
+          "inLanguage": "ko-KR"
+        },
+        {
+          "@type": "Organization",
+          "name": title,
+          "url": window.location.origin,
+          "logo": window.location.origin + "/favicon.ico"
+        }
+      ]
+    };
+    ldJsonScript.textContent = JSON.stringify(jsonLd);
+  }
+
+  // 3. UI 업데이트
+  function updateUi(data) {
+    const title = document.title || window.location.hostname;
+    
+    // 연도 및 제목
+    document.getElementById('copyright-year').textContent = data.year;
+    document.getElementById('site-title-display').textContent = title;
+    
+    // 날짜
+    const timeElem = document.getElementById('last-update-time');
+    timeElem.textContent = data.formattedDate;
+    timeElem.setAttribute('datetime', data.isoDateTime);
+
+    // 상태 메시지 (랜덤 순환)
+    const statusMsgs = [
+         "서비스 최적화 완료", 
+          "데이터베이스 동기화 완료", 
+          "보안 프로토콜 점검 완료",
+          "콘텐츠 최신화 완료",
+          "시스템 점검 완료",
+          "웹표준 레이아웃 최적화",
+          "사용자 인터페이스 안정화",
+          "성능 개선 완료",
+          "새로운 데이터 로드 완료",
+          "운영 시스템 안정화 완료",
+          "인덱싱 최적화 완료",
+          "데이터 무결성 검사 완료", 
+          "캐시 레이어 갱신",
+          "보안 프로토콜 활성화", 
+          "실시간 콘텐츠 동기화"
+    ];
+    document.getElementById('sync-status').textContent = statusMsgs[Math.floor(Math.random() * statusMsgs.length)];
+  }
+
+  // 4. 실행 제어 (DOM 로드 후 실행)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = getKstInfo();
+      updateUi(data);
+      updateSeoEngine(data);
+    });
+  } else {
+    const data = getKstInfo();
+    updateUi(data);
+    updateSeoEngine(data);
+  }
+})();
+</script>
+
+</body>
 </html>
